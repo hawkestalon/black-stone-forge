@@ -1,0 +1,15 @@
+services:
+   db:
+      image: postgres:13
+      restart: always
+      environment:
+         - POSTGRES_HOST_AUTH_METHOD=trust
+         - POSTGRES_DB=black-stone
+      ports: 
+         - "${DB_PORT:-5432}:5432"
+      env_file:
+         - ../.env
+      volumes:
+         - black-stone-volume:${DOCKER_DATABASE_VOLUME:-/var/lib/postgresql/data}
+volumes:
+   black-stone-volume:
