@@ -1,7 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 
+export interface IPrismaService {
+    connect: () => Promise<void>;
+    disconnect: () => Promise<void>;
+}
+
 export default class PrismaService {
-    private prismaClient: PrismaClient;
+    public prismaClient: PrismaClient;
 
     constructor() {
         this.prismaClient = new PrismaClient();
