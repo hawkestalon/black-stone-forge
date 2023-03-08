@@ -1,5 +1,5 @@
 import { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
-import UserService from "./user-service";
+import buildUserService from "./user-service";
 import { User } from '@prisma/client';
 
 interface IParams {
@@ -14,9 +14,7 @@ interface ICreateUserBody {
 }
 
 const userPlugin = async (fastify: any, opts: any, done: any) => {
-  console.log('PRisma Service -> ');
-  const userService = new UserService(fastify.prismaService);
-  console.log("UserService ")
+  const userService = buildUserService(fastify.prismaService);
 
   // routes
   fastify.get('/users/:id', async (request: FastifyRequest<{ Params: IParams }>, reply: FastifyReply) => {

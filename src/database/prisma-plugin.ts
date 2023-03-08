@@ -1,6 +1,6 @@
 import { FastifyPluginAsync } from "fastify";
 import fp from "fastify-plugin";
-import PrismaService, { IPrismaService } from "./prisma-service";
+import buildPrismaService, { IPrismaService } from "./prisma-service";
 
 declare module 'fastify' {
     interface FastifyInstance {
@@ -9,7 +9,7 @@ declare module 'fastify' {
 }
 
 const prismaConnector = fp(async (fastify: any, opts: any, done: any) => {
-    const prismaClient = new PrismaService();
+    const prismaClient = buildPrismaService();
     await prismaClient.connect();
 
     fastify.decorate('prismaService', prismaClient.prismaClient);
