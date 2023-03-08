@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon",
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "db:up": "docker-compose -p black-stone -f docker/docker-compose.yaml up -d"
   },
   "author": "Zach Hawkes",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "fastify-plugin": "^4.5.0"
   },
   "devDependencies": {
+    "@types/node": "^18.14.6",
     "nodemon": "^2.0.20",
     "prisma": "^4.11.0",
     "typescript": "^4.9.5"
