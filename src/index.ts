@@ -1,5 +1,5 @@
 import fastify from 'fastify';
-import prismaConnector from './db/db-connector';
+import prismaConnector from './database/db-connector';
 
 const PORT = process.env.PORT || 3000;
 
