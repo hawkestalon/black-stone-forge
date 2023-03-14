@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import { IPrismaService } from './../database/prisma-service';
 import { Prisma, User } from '@prisma/client';
 
 export interface IUserService {

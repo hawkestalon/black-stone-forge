@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import { IPrismaService } from './../database/prisma-service';
 import { Chat, Prisma } from '@prisma/client';
 
 export interface IChatService {
